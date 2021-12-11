@@ -5,12 +5,24 @@ Ut in felis et justo fringilla sagittis ut sed lorem. Integer molestie purus vit
 Pellentesque sit amet eleifend quam. Phasellus hendrerit ut nisi id bibendum. Vestibulum interdum libero eget mi tincidunt, vitae fringilla velit consectetur. Donec sagittis diam dolor. Ut a condimentum ex, in feugiat orci. In non lectus nec dolor sollicitudin vulputate. Aliquam vitae lectus sed orci imperdiet mattis at eu ex. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Pellentesque urna eros, tristique vulputate tempus in, ullamcorper non erat. In dapibus quis erat eu ultrices. Duis lobortis sodales mi, fringilla imperdiet felis rhoncus in.
 Suspendisse dapibus ultrices sem, vel convallis velit blandit id. Phasellus orci urna, finibus ut efficitur eu, bibendum vel odio. Aliquam sollicitudin odio sit amet nisi fringilla commodo. In quis convallis nunc. Praesent at faucibus ex. Aliquam pulvinar, nisi sit amet rutrum aliquet, lorem nisi.`
 
-let strArray=str.replace(/\./g,'');
-strArray=strArray.replace(/,/g,'');
-strArray=strArray.split(" ");
+
+let strArray=str.split(" ");
+
+let stringWords={};
+
+for(let i=0;i<strArray.length;i++){
+    let word=strArray[i].replace(".",'').replace(",",'').replace("\n",'').toLowerCase();
+    if(!stringWords[word]){
+        stringWords[word]=1;
+    }else{
+        stringWords[word]+=1;
+    }
+}
+
+console.log(stringWords);
 
 
-for(let i=0; i<strArray.length;i++){
+/**for(let i=0; i<strArray.length;i++){
     let counter=0;
     for (let j=0;j<strArray.length;j++){
         let first= strArray[i].toLowerCase();
@@ -20,7 +32,7 @@ for(let i=0; i<strArray.length;i++){
         }
     }
     console.log(strArray[i],counter);
-}
+}*/
 
 
 
